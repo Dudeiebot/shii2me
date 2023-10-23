@@ -5,6 +5,7 @@ import (
 	"fmt"
 )
 
+// error is the ididomatic way of handling abnormal behaviors sha
 // custom error with structs and method
 type areaError struct {
 	err    string  // error description
@@ -51,7 +52,10 @@ func main() {
 	area, err := rectArea(length, width)
 	if err != nil {
 		var areaError *areaError
-		if errors.As(err, &areaError) {
+		if errors.As(
+			err,
+			&areaError,
+		) { // check out these more representation of error with AS and IS
 			if areaError.lengthNegative() {
 				fmt.Printf("error: length %0.2f is less than zero\n", areaError.length)
 			}
