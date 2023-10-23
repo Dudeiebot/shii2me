@@ -32,7 +32,6 @@ func main() {
 		// Close the channel to signal that no more data will be sent
 		// close(myChannel)
 	}()
-
 	go func() {
 		for j := 6; j <= 10; j++ {
 			myChannel <- j
